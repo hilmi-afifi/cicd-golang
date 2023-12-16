@@ -35,4 +35,5 @@ jobs:
         with:
           push: true
           # tags: ${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:latest
-          tags: "latest,${{ steps.pre-step.outputs.release-version }}"
+          # tags: "latest,${{ steps.pre-step.outputs.release-version }}"
+          tags: "${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:latest,${{ steps.pre-step.outputs.release-version }}"
