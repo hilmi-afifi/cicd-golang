@@ -34,4 +34,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:latest
+          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:latest
+          tags: "latest,${{ steps.pre-step.outputs.release-version }}"
