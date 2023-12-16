@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          
+
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
@@ -39,6 +39,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:latest
-          # tags: "latest,${{ steps.pre-step.outputs.release-version }}"
-          tags: "${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:latest,${{ steps.pre-step.outputs.release-version }}"
+          tags: "${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:latest,${{ steps.docker_build.outputs.version }}"
