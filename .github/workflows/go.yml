@@ -28,6 +28,9 @@ jobs:
       - name: Test
         run: go test -v ./...
 
+      - name: Check if it's a tag push
+        run: echo "This is a ${{ github.event_name }} event with ref type ${{ github.ref_type }}"
+
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
@@ -39,4 +42,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: "${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:${{ github.ref_type }}"
+          tags: "${{ secrets.DOCKERHUB_USERNAME }}/cicd-golang:${{ github.ref }}"
