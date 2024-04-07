@@ -4,36 +4,36 @@ steps:
   entrypoint: 'bash'
   args: [
    '-c',
-   'docker pull gcr.io/$PROJECT_ID/my-app-vue:latest || exit 0'
+   'docker pull gcr.io/$PROJECT_ID/cicd-golang:latest || exit 0'
   ]
 # Step 2
 - name: gcr.io/cloud-builders/docker
   args: [
    'build',
    '-t',
-   'gcr.io/$PROJECT_ID/my-app-vue:latest',
+   'gcr.io/$PROJECT_ID/cicd-golang:latest',
    '.'
   ]
-  dir: 'my-app-vue'
+  dir: 'cicd-golang'
 # Step 3
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['apply', '-f', 'k8s/']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-d'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=gke-my-app-vue'
+#- name: 'gcr.io/cloud-builders/kubectl'
+#  args: ['apply', '-f', 'k8s/']
+#  env:
+#  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-d'
+#  - 'CLOUDSDK_CONTAINER_CLUSTER=gke-cicd-golang'
 # Step 4
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: [
-   'set',
-   'image',
-   'deployment',
-   'my-app-vue',
-   'my-app-vue=gcr.io/$PROJECT_ID/my-app-vue:latest'
-  ]
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-d'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=gke-my-app-vue'
+#- name: 'gcr.io/cloud-builders/kubectl'
+#  args: [
+#   'set',
+#   'image',
+#   'deployment',
+#   'cicd-golang',
+#   'cicd-golang=gcr.io/$PROJECT_ID/cicd-golang:latest'
+#  ]
+#  env:
+#  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-d'
+#  - 'CLOUDSDK_CONTAINER_CLUSTER=gke-cicd-golang'
   # Push the image to Google Container Registry with the latest tag
 images: [
-   'gcr.io/$PROJECT_ID/my-app-vue:latest'
+   'gcr.io/$PROJECT_ID/cicd-golang:latest'
   ]
