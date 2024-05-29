@@ -1,4 +1,4 @@
-name: GoLang
+name: CI/CD GoLang
 
 on:
   push:
