@@ -22,8 +22,8 @@ jobs:
       with:
         projectBaseDir: .     
       env:
-        SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }} // Sonar Token generated 
-        SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }} // Example URL (https://sonarqube.xhilmi.co.id)
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         
   build-push:
     name: Build and Push
