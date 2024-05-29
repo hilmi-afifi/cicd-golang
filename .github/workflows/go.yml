@@ -22,10 +22,10 @@ jobs:
       with:
         projectBaseDir: .    
         args: >          
-          -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY }}        
+          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}        
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ vars.SONAR_HOST_URL }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         
   build-push:
     name: Build and Push
