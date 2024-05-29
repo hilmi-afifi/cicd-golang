@@ -22,10 +22,13 @@ jobs:
       with:
         projectBaseDir: .    
         args: >          
-          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}        
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+          -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+      # Instead using args above, you also can use env below, but only support for token and host url
+      # env:
+      #  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         
   build-push:
     name: Build and Push
