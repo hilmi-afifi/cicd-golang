@@ -20,6 +20,7 @@ jobs:
     - name: Official SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v2.1.0
       with:
+        projectBaseDir: .      
         host: ${{ secrets.SONARQUBE_HOST }} //Sonar Token generated 
         login: ${{ secrets.SONARQUBE_TOKEN }} example URL (https://sonarqube.xhilmi.co.id)
         
