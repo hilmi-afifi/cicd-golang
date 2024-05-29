@@ -1,3 +1,3 @@
 module github.com/xhilmi/cicd-golang
 
-go 1.17
+go 1.20
