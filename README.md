@@ -1,2 +1,2 @@
 # CI/CD Golang
-This repository automate with Github Action to build automatically Golang such CI/CD.
+This repository is automate by Github Action CI/CD to build GoLang Apps into Image Registry.
