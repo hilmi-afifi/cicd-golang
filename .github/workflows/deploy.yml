@@ -8,6 +8,7 @@ on:
 
 jobs:
 
+  # Stage Scan
   sonarqube:
     name: SonarQube Scan
     runs-on: ubuntu-latest
@@ -29,7 +30,8 @@ jobs:
       # env:
       #  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #  SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        
+
+  # Stage Build and Push
   build-push:
     name: Build and Push
     needs: sonarqube
